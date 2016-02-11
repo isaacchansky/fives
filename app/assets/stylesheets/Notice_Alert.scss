@@ -1,0 +1,35 @@
+@import "variables";
+
+@keyframes notifyNditch {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+.Notice {
+  position: fixed;
+  background: $grey;
+  color: $white;
+  padding: 1em 1.5em;
+  box-shadow: 6px 6px darken($grey, 10%);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  animation: notifyNditch 4s;
+  animation-fill-mode: forwards;
+}
+
+
+.Alert {
+  position: fixed;
+}

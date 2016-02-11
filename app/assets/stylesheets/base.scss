@@ -1,0 +1,54 @@
+@import "variables";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background: $white;
+  min-height: 100%;
+  color: $black;
+  border: 1.5em solid rgba(0,0,0,0.025);
+  margin: 0;
+  padding: 1em;
+}
+
+a:not(.Button) {
+  color: $blue;
+  @include linkUnderlines($white, $blue);
+  transition: all 250ms ease-in-out;
+
+  &:hover {
+    color: darken($blue, 10%);
+  }
+}
+
+
+
+input {
+  padding: 0.5em;
+  border: 2px solid $grey;
+  transition: all 250ms ease-in-out;
+  margin-bottom: 0.5em;
+  &:focus {
+    border-color: $blue;
+    outline: none;
+  }
+}
+
+
+.Logo {
+  color: $red;
+}
+
+.LogoMark {
+  color: $blue;
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  border-bottom: 0.075em solid $red;
+}

@@ -10,8 +10,36 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if notice %>
+      <p class="Notice"><%= notice %></p>
+      <% end %>
+    <% if alert %>
+      <p class="Alert"><%= alert %></p>
+    <% end %>
+    <header class="Nav">
+      <nav class="Nav-content">
+        <div class="Nav-content-title">
+          <h3 class="Logo">fives</h3>
+        </div>
+        <ul class="Nav-content-items t-interface">
+
+          <% if current_account.nil? %>
+          <li><%= link_to 'About', '#' %></li>
+          <li>
+            <a href="#" data-modal-trigger="" data-modal-target="#start-writing-modal">Start Writing</a>
+          </li>
+          <% else %>
+          <li>
+            <span>Hello, <%= current_account.username %></span>
+          </li>
+          <li>
+            <%= link_to 'Log Out', destroy_account_session_path, :method => :delete %>
+          </li>
+          <% end %>
+
+        </ul>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,96 @@
+@function power ($x, $n) {
+    $ret: 1;
+    @if $n >= 0 {
+        @for $i from 1 through $n {
+            $ret: $ret * $x;
+        }
+    } @else {
+        @for $i from $n to 0 {
+            $ret: $ret / $x;
+        }
+    }
+    @return $ret;
+}
+
+
+// global layout/sizing
+
+$max-width: 100rem;
+
+// Typography
+$font-ratio: 1.666;
+$base-fontsize: 20px;
+$small-fontsize: $base-fontsize / $font-ratio;
+$subheadline-fontsize: $base-fontsize * $font-ratio;
+$headline-fontsize: $base-fontsize * power($font-ratio, 2);
+$display-fontsize: $base-fontsize * power($font-ratio, 3);
+$giant-fontsize: $base-fontsize * power($font-ratio, 5);
+
+// Color
+$blue: #5EBBD5;
+$red: #DD7062;
+$black: #3A4143;
+$grey: #828276;
+$white: #FFFFE7;
+$selectionColor: $red;
+
+
+
+
+// this mixin is used to add the outline to the text
+@mixin textShadowToCropUnderline($color) {
+  text-shadow:
+    .03em 0 $color,
+    -.03em 0 $color,
+    0 .03em $color,
+    0 -.03em $color,
+
+    .06em 0 $color,
+    -.06em 0 $color,
+    .09em 0 $color,
+    -.09em 0 $color,
+
+    .12em 0 $color,
+    -.12em 0 $color,
+    .15em 0 $color,
+    -.15em 0 $color;
+}
+// this puts it all together
+@mixin linkUnderlines($background, $color) {
+  color: $color;
+  text-decoration: none;
+  @include textShadowToCropUnderline($background);
+
+  background-image:
+    linear-gradient($background, $background),
+    linear-gradient($background, $background),
+    linear-gradient($color, $color);
+  background-size:
+    .05em 1px,
+    .05em 1px,
+    1px 1px;
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    repeat-x;
+  background-position:
+    0% 90%,
+    100% 90%,
+    0% 90%;
+
+  &::selection {
+    @include textShadowToCropUnderline($selectionColor);
+    background-color: $selectionColor;
+  }
+  &::-moz-selection {
+    @include textShadowToCropUnderline($selectionColor);
+    background-color: $selectionColor;
+  }
+  &:before,
+  &:after,
+  *,
+  *:before,
+  *:after {
+    text-shadow: none;
+  }
+}

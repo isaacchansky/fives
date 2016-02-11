@@ -21,9 +21,9 @@ gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+# gem 'jbuilder', '~> 2.0'
 # Action Cable dependencies for the Redis adapter
-gem 'redis', '~> 3.0'
+# gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -33,6 +33,9 @@ gem 'redis', '~> 3.0'
 gem 'omniauth', '>= 1.0.0'
 gem 'omniauth-twitter'
 gem 'devise', git: 'git@github.com:plataformatec/devise.git'
+
+gem 'autoprefixer-rails'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -44,6 +47,8 @@ group :development do
   gem 'web-console', '~> 3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'guard'
+  gem 'guard-livereload', '~> 2.5', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

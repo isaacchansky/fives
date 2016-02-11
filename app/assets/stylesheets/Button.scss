@@ -1,0 +1,61 @@
+@import "variables";
+.Button {
+  padding: 0.5em 1.2em;
+  text-decoration: none;
+  transition: all 250ms ease-in-out;
+  display: inline-block;
+  letter-spacing: 0.75px;
+  position: relative;
+  overflow: hidden;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: -4px;
+    bottom: -4px;
+    left: -4px;
+    right: -4px;
+    border: 4px solid rgba(0,0,0,0.2);
+    transition: all 250ms ease-in-out;
+    transition-delay: 250ms;
+  }
+
+  &:hover {
+    &:after {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+.Button--blue {
+  color: $white;
+  background: $blue;
+  &:hover {
+    background: darken($blue, 10%);
+  }
+}
+
+.Button--red {
+  color: $white;
+  background: $red;
+  &:hover {
+    background: darken($red, 10%);
+  }
+}
+
+.Button--grey {
+  color: $white;
+  background: $grey;
+  &:hover {
+    background: darken($grey, 10%);
+  }
+}
+
+input[type="submit"] {
+  @extend .Button;
+  @extend .Button--grey;
+  cursor: pointer;
+}

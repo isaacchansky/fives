@@ -1,5 +1,33 @@
-<%= current_account %>
 
-<h1>HOME</h1>
+<div class="Hero">
+  <header class="t-center">
+    <span class="Hero-giant LogoMark">5</span>
+  </header>
+  <h2 class="t-center">An opinionated journaling app.</h2>
 
-<%= console %>
+</div>
+
+
+<div class="Section t-center">
+  <h2 class="t-thin-sans">Be happy, write more.</h2>
+  <p>Fives is a project I (<a href="https://twitter.com/isaacchansky">@isaacchansky</a>) made for myself, it's based on a method of journaling which I found to be uplifting and helpful. Being a child of the internet, my first though is to see if this method can benefit from adding internet to it. So, we'll see!</p>
+  <h3 class="t-left">Here's the idea:</h3>
+  <ol>
+    <li>Every so often (not necessarily daily) I would write down up to 5 things I was proud of.</li>
+    <li>Then just free write - about those things or about anything else.</li>
+  </ol>
+  <p>Pretty simple, but I found that it helped me focus and get excited about what I was doing. Keep momentum.</p>
+</div>
+
+<div class="Section t-center">
+  <div class="t-center">
+    <%= link_to "Sign in with Twitter", account_omniauth_authorize_path(:twitter), class: "Button Button--blue" %>
+    <br>
+    <p class="t-split-lined"><em>or</em></p>
+    <br>
+    <%= link_to "Create an account", new_account_registration_path, class: "Button Button--red" %>
+    <br>
+    <br>
+    <small>Totally doesn't matter which one you choose. It changes nothing, it's just your preference.</small>
+  </div>
+</div>
