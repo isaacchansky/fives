@@ -1,0 +1,8 @@
+<li class="Entry">
+  <h3><%= link_to entry.title, entry %></h3>
+  <small><%= entry.created_at %></small>
+  <p><%= entry.things.to_sentence %></p>
+  <br>
+  <%= link_to 'Edit', edit_entry_path(entry) %>
+  <%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %>
+</li>

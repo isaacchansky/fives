@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211022741) do
+ActiveRecord::Schema.define(version: 20160212041838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,4 +37,19 @@ ActiveRecord::Schema.define(version: 20160211022741) do
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "entries", force: :cascade do |t|
+    t.integer  "account_id"
+    t.text     "content"
+    t.string   "title"
+    t.text     "thing_one"
+    t.text     "thing_two"
+    t.text     "thing_three"
+    t.text     "thing_four"
+    t.text     "thing_five"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["account_id"], name: "index_entries_on_account_id", using: :btree
+  end
+
+  add_foreign_key "entries", "accounts"
 end
