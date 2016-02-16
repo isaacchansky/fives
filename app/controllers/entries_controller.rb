@@ -13,6 +13,7 @@ class EntriesController < ApplicationController
   # GET /entries/new
   def new
     @entry = current_account.entries.build
+    @entry.title = Time.now.strftime("%a %d %b %Y")
   end
 
   # GET /entries/1/edit
