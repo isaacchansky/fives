@@ -1,5 +1,28 @@
-<h1>New Entry</h1>
-
 <%= render 'form', entry: @entry %>
 
-<%= link_to 'Back', entries_path %>
+
+<div class="timer">
+  <a href="#" data-hook="timer-start">Start</a>
+  <span class="time"></span>
+</div>
+
+<script>
+  (function() {
+    var interval, time;
+
+    document.querySelector('[data-hook="timer-start"]').addEventListener('click', function() {
+      document.querySelector('[data-hook="timer-start"]').innerHTML = "start over";
+      window.clearInterval(interval);
+      time = 5;
+      document.querySelector('.timer .time').innerHTML = time + (time === 1 ? " minute" : " minutes");
+      interval = setInterval(function() {
+        time -= 1;
+        document.querySelector('.timer .time').innerHTML = time + (time === 1 ? " minute" : " minutes");
+        if(time < 0) {
+          clearInterval(interval);
+          document.querySelector('.timer .time').innerHTML = "5 minutes are up! well done.";
+        }
+      }, 10000);
+    });
+  })();
+</script>

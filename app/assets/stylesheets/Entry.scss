@@ -1,3 +1,38 @@
 // Place all the styles related to the entries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#editable {
+  outline: none;
+  cursor: text;
+}
+
+.new_entry {
+  max-width: 45rem;
+  margin: 0 auto;
+
+  .actions {
+    text-align: right;
+  }
+
+  .title-field {
+    label:after {
+      content: ":";
+    }
+    input {
+      background: transparent;
+      border: none;
+    }
+  }
+}
+
+
+.timer {
+  position: fixed;
+  bottom: 0;
+  background: inherit;
+  left: 0;
+  padding: 1.5em;
+  width: 100%;
+}

@@ -35,7 +35,9 @@ $white: #FFFFE7;
 $selectionColor: $red;
 
 
-
+::selection {
+  background-color: $selectionColor;
+}
 
 // this mixin is used to add the outline to the text
 @mixin textShadowToCropUnderline($color) {

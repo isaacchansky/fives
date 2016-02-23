@@ -1,17 +1,19 @@
 <%= form_for(entry) do |f| %>
+  <div class="actions">
+    <%= f.submit 'Done', onClick: "event.preventDefault(); this.form.querySelector('#content').value = this.form.querySelector('#editable').innerHTML; this.form.submit()" %>
+  </div>
   <%= f.hidden_field :account_id %>
 
-  <div class="field">
+  <div class="field title-field">
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
 
   <%= f.hidden_field :content, id: 'content' %>
-  <div id="editable"></div>
+  <section class="editor">
+    <div id="editable"></div>
+  </section>
 
-  <div class="actions">
-    <%= f.submit 'Done', onClick: "event.preventDefault(); this.form.querySelector('#content').value = this.form.querySelector('#editable').innerHTML; this.form.submit()" %>
-  </div>
 <% end %>
 
-<script>var editor = new MediumEditor('#editable');</script>
+<script>var editor = new MediumEditor('#editable', { placeholder: { text: "It was the best of times..."}});</script>

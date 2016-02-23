@@ -125,9 +125,11 @@ body {
 
 p {
   line-height: 1.4;
-  max-width: 40em;
   text-align: left;
   display: inline-block;
+}
+p, ul, ol {
+  max-width: 40em;
 }
 
 ul li,
