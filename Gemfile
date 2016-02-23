@@ -32,8 +32,7 @@ gem 'turbolinks'
 
 gem 'omniauth', '>= 1.0.0'
 gem 'omniauth-twitter'
-gem 'devise', git: 'git://github.com:plataformatec/devise.git'
-
+gem 'devise', :github => 'plataformatec/devise', :branch => 'master'
 gem 'autoprefixer-rails'
 
 
