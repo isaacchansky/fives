@@ -1,11 +1,12 @@
 // Place all the styles related to the entries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+@import "variables";
 
 #editable {
   outline: none;
   cursor: text;
+  min-height: 10em;
 }
 
 .new_entry {
@@ -23,6 +24,7 @@
     input {
       background: transparent;
       border: none;
+      width: 100%;
     }
   }
 }
@@ -31,8 +33,31 @@
 .timer {
   position: fixed;
   bottom: 0;
-  background: inherit;
+  background: transparent;
   left: 0;
-  padding: 1.5em;
+  padding-left: 1.5em;
   width: 100%;
+}
+
+.Entry-header {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+
+    > * {
+        color: $grey;
+        &:first-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.Entry-content {
+  max-width: 45rem;
+  margin: 2em auto 0;
+}
+
+.Entries {
+    list-style: none;
+    .Entry {
+        margin-bottom: 1em;
+    }
 }

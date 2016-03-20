@@ -1,7 +1,9 @@
 <%= link_to 'Edit', edit_entry_path(@entry) %>
-<h1><%= @entry.title %></h1>
-<small><%=nldate @entry.created_at %></small>
+<header class="Entry-header">
+    <h1 class="h3"><%= @entry.title %></h1>
+    <p><%=nldate @entry.created_at %></p>
+</header>
 
-<p>
+<section class="Entry-content">
   <%= @entry.content.html_safe %>
-</p>
+</section>

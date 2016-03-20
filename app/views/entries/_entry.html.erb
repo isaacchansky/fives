@@ -1,7 +1,6 @@
 <li class="Entry">
   <h3><%= link_to entry.title, entry %></h3>
-  <small><%= entry.created_at %></small>
-  <br>
+  <small><%= nldate entry.created_at %></small>
   <%= link_to 'Edit', edit_entry_path(entry) %>
-  <%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Delete', entry, method: :delete, data: { confirm: 'Are you sure?' } %>
 </li>

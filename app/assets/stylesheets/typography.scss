@@ -97,20 +97,20 @@ h5 {
   margin: 0 0 0.5em;
 }
 
-h1 {
+.h1, h1 {
   font-size: $display-fontsize;
 }
 
-h2 {
+.h2, h2 {
   font-size: $headline-fontsize;
 
 }
-h3 {
+.h3, h3 {
   font-size: $subheadline-fontsize;
 }
 
-h4,
-small {
+.h4, h4,
+.small, small {
   font-size: $small-fontsize;
 }
 

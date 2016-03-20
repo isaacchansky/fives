@@ -2,7 +2,7 @@
 
 
 <div class="timer">
-  <a href="#" data-hook="timer-start">Start</a>
+  <a href="#" data-hook="timer-start">Start timer</a>
   <span class="time"></span>
 </div>
 
@@ -10,19 +10,25 @@
   (function() {
     var interval, time;
 
-    document.querySelector('[data-hook="timer-start"]').addEventListener('click', function() {
-      document.querySelector('[data-hook="timer-start"]').innerHTML = "start over";
-      window.clearInterval(interval);
-      time = 5;
-      document.querySelector('.timer .time').innerHTML = time + (time === 1 ? " minute" : " minutes");
-      interval = setInterval(function() {
+    function intervalTick() {
         time -= 1;
         document.querySelector('.timer .time').innerHTML = time + (time === 1 ? " minute" : " minutes");
         if(time < 0) {
-          clearInterval(interval);
-          document.querySelector('.timer .time').innerHTML = "5 minutes are up! well done.";
+            clearInterval(interval);
+            document.querySelector('.timer .time').innerHTML = "5 minutes are up! well done.";
         }
-      }, 10000);
-    });
+    }
+
+    function timerStart() {
+        document.querySelector('[data-hook="timer-start"]').innerHTML = "start over";
+        window.clearInterval(interval);
+        time = 5;
+        document.querySelector('.timer .time').innerHTML = time + (time === 1 ? " minute" : " minutes");
+        interval = setInterval(intervalTick, 60000);
+    }
+
+    document
+        .querySelector('[data-hook="timer-start"]')
+        .addEventListener('click', timerStart);
   })();
 </script>
