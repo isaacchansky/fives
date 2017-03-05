@@ -3,27 +3,34 @@
 @keyframes notifyNditch {
   0% {
     opacity: 0;
+    transform: translateY(-100%);
   }
   5% {
     opacity: 1;
+    transform: translateY(0%);
   }
   90% {
     opacity: 1;
+    transform: translateY(0%);
   }
   100% {
     opacity: 0;
     display: none;
+    transform: translateY(-100%);
   }
 }
 
 .Notice {
   position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  max-width: none;
+  padding: 0.5em 2em;
+  right: 0;
+  font-size: 0.8em;
   background: $grey;
   color: $white;
-  padding: 1em 1.5em;
-  box-shadow: 6px 6px darken($grey, 10%);
-  left: 50%;
-  transform: translateX(-50%);
   z-index: 1;
   animation: notifyNditch 4s;
   animation-fill-mode: forwards;

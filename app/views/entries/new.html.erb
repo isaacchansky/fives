@@ -2,7 +2,7 @@
 
 
 <div class="timer">
-  <a href="#" data-hook="timer-start">Start timer</a>
+  <button class="Button Button--red" data-hook="timer-start">Start timer</button>
   <span class="time"></span>
 </div>
 
@@ -12,10 +12,10 @@
 
     function intervalTick() {
         time -= 1;
-        document.querySelector('.timer .time').innerHTML = time + (time === 1 ? " minute" : " minutes");
-        if(time < 0) {
+        document.querySelector('.timer .time').innerHTML = time + (time === 1 ? " minute left" : " minutes left");
+        if(time === 0) {
             clearInterval(interval);
-            document.querySelector('.timer .time').innerHTML = "5 minutes are up! well done.";
+            document.querySelector('.timer .time').innerHTML = "5 minutes are up!";
         }
     }
 
@@ -23,8 +23,8 @@
         document.querySelector('[data-hook="timer-start"]').innerHTML = "start over";
         window.clearInterval(interval);
         time = 5;
-        document.querySelector('.timer .time').innerHTML = time + (time === 1 ? " minute" : " minutes");
-        interval = setInterval(intervalTick, 60000);
+        document.querySelector('.timer .time').innerHTML = time + (time === 1 ? " minute left" : " minutes left");
+        interval = setInterval(intervalTick, 6000);
     }
 
     document
